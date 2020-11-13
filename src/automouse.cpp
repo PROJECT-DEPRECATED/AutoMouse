@@ -146,8 +146,6 @@ int main() {
 
 		onRunning = true;
 		isReload = false;
-
-		
 	}
 
 	inRunning();
