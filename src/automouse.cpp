@@ -10,15 +10,11 @@ bool onRunning = true;
 bool isExit = false;
 bool onToggled = false;
 bool onClicked = false;
-int setDelay = 0;
+bool isReload = false;
 int getX, getY;
 
-int main(void) {
-	onProgramInfo();
-	std::cout << "\n";
-	std::cout << "[AutoMouse Shell] Please type commands. If you don't know please type help.\n";
-	
-	while (onRunning) {
+int inRunning() {
+	while (onRunning == true) {
 		string typeCommand;
 		POINT getPointer;
 		getX = getPointer.x;
@@ -31,7 +27,7 @@ int main(void) {
     		std::cout << "[AutoMouse Shell] Which key would you like to press? 'left' or 'right'\n";
 			std::cout << "SelectButton> ";
     		std::cin >> typeCommand;
-    		
+
     		if (typeCommand == "left") {
     			onToggled = true;
     			toggleLeftButton(getX, getY, onToggled);
@@ -48,32 +44,14 @@ int main(void) {
 			std::cout << "SelectButton> ";
 			std::cin >> typeCommand;
 
-			std::cout << "[AutoMouse Shell] Please type the click rate. Default: 0ms, Example1) 1Second = 1000ms, Example2)10Second = 10000ms\n";
-			std::cout << "ClickRate> ";
-			std::cin >> setDelay;
-
 			if (typeCommand == "left") {
 				onClicked = true;
-				
-				if (setDelay == 0) {
-					clickLeftButton(getX, getY, 0, onClicked);
-				} 
-
-				else {
-					clickLeftButton(getX, getY, setDelay, onClicked);
-				}
+				clickLeftButton(getX, getY, onClicked);
 			}
 
 			else if (typeCommand == "right") {
 				onClicked = true;
-
-				if (setDelay == 0) {
-					clickRightButton(getX, getY, 0, onClicked);
-				}
-
-				else {
-					clickRightButton(getX, getY, setDelay, onClicked);
-				}
+				clickRightButton(getX, getY, onClicked);
 			}
 		}
 		
@@ -87,6 +65,11 @@ int main(void) {
 
 		else if (typeCommand == "version") {
 			onProgramVersion();
+		}
+
+		else if (typeCommand == "reload") {
+			isReload = true;
+			onRunning = false;
 		}
 		
 		else if (typeCommand == "exit") {
@@ -120,6 +103,7 @@ int main(void) {
 			std::cout << "[AutoMouse Shell] clear: Initialize the shell output. Usage> clear\n";
 			std::cout << "[AutoMouse Shell] capture: You can check the position of the mouse pointer. Usage> capture\n";
 			std::cout << "[AutoMouse Shell] version: You can check this program version. Usage> version\n";
+			std::cout << "[AutoMouse Shell] reload: You can reload this program. Usage> reload\n";
 			std::cout << "[AutoMouse Shell] exit: You can exit this program. Usage> exit\n";
 		}
 		
@@ -128,5 +112,44 @@ int main(void) {
 		}
 	}
 
-    return 0;
+	return 0;
+}
+
+int main() {
+	onProgramInfo();
+	std::cout << "\n";
+	std::cout << "[AutoMouse Shell] Please type commands. If you don't know please type help.\n";
+	inRunning();
+
+	if (isReload == true) {
+		system("cls");
+        std::cout << "Reloading Settings";
+		Sleep(1000);
+		system("cls");
+
+		std::cout << "Reloading Settings.";
+		Sleep(1000);
+		system("cls");
+
+		std::cout << "Reloading Settings..";
+		Sleep(1000);
+		system("cls");
+
+		std::cout << "Reloading Settings...";
+		Sleep(1000);
+		system("cls");
+
+		std::cout << "Reloading Settings....";
+		Sleep(1000);
+		system("cls");
+
+
+		onRunning = true;
+		isReload = false;
+
+		
+	}
+
+	inRunning();
+	return 0;
 }
