@@ -2,8 +2,8 @@
 #include <string>
 #include <windows.h>
 #include "info.h"
-#include "togglemouse.cpp"
-#include "clickmouse.cpp"
+#include "togglemouse.h"
+#include "clickmouse.h"
 using namespace std;
 
 bool onRunning = true;
@@ -118,9 +118,11 @@ int inRunning() {
 }
 
 int main() {
-	onProgramInfo();
+	system("title AutoMouse-1.0v");
+    std::cout << "Automouse-1.0v Made by Project_TL\n"; 
 	std::cout << "\n";
 	std::cout << "[AutoMouse Shell] Please type commands. If you don't know please type help.\n";
+
 	inRunning();
 
 	if (isReload == true) {
