@@ -56,7 +56,7 @@ int inRunning() {
 		}
 		
 		else if (typeCommand == "clear") {
-			std::cout << "[AutoMouse Shell] Clearing..."
+			std::cout << "[AutoMouse Shell] Clearing...";
 			Sleep(1000);
 			system("cls");
 		}
