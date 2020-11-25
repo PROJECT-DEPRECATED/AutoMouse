@@ -63,7 +63,7 @@ int inRunning() {
 		}
 
 		else if (typeCommand == "version") {
-			printf("[AutoMouse Shell] This program version is 1.0v\n");
+			printf("[AutoMouse Shell] This program version is 2.0v\n");
 		}
 
 		else if (typeCommand == "reload") {
