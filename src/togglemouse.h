@@ -1,9 +1,9 @@
-#include <iostream>
+#include <stdio.h>
 #include <windows.h>
 
 int toggleLeftButton(int GETX, int GETY, bool GETTOGGLE) {
-	std::cout << "Get X Location: " << GETX << " " << "Get Y Location: " << GETY << "\n";
-	std::cout << "Running... Left Toggle Mouse\n";
+	printf("Get X Location: %d Get Y Location: %d\n", GETX, GETY);
+	printf("Running... Left Toggle Mouse\n");
 	
 	while (GETTOGGLE) {
     	mouse_event(MOUSEEVENTF_LEFTDOWN, GETX, GETY, 0, 0);
@@ -18,8 +18,8 @@ int toggleLeftButton(int GETX, int GETY, bool GETTOGGLE) {
 }
 
 int toggleRightButton(int GETX, int GETY, bool GETTOGGLE) {
-	std::cout << "Get X Location: " << GETX << " " << "Get Y Location: " << GETY << "\n";
-	std::cout << "Running... Right Toggle Mouse\n";
+	printf("Get X Location: %d Get Y Location: %d\n", GETX, GETY);
+	printf("Running... Right Toggle Mouse\n");
 	
 	while (GETTOGGLE) {
 		mouse_event(MOUSEEVENTF_RIGHTDOWN, GETX, GETY, 0, 0);

@@ -1,9 +1,9 @@
-#include <iostream>
+#include <stdio.h>
 #include <windows.h>
 
 int clickLeftButton(int GETX, int GETY, bool GETCLICKED) {
-    std::cout << "Get X Location: " << GETX << " " << "Get Y Location: " << GETY << "\n";
-	std::cout << "Running... Left Click Mouse\n";
+    printf("Get X Location: %d Get Y Location: %d\n", GETX, GETY);
+	printf("Running... Left Click Mouse\n");
 	
 	while (GETCLICKED) {
     	mouse_event(MOUSEEVENTF_LEFTDOWN, GETX, GETY, 0, 0);
@@ -21,8 +21,8 @@ int clickLeftButton(int GETX, int GETY, bool GETCLICKED) {
 }
 
 int clickRightButton(int GETX, int GETY, bool GETCLICKED) {
-    std::cout << "Get X Location: " << GETX << " " << "Get Y Location: " << GETY << "\n";
-	std::cout << "Running... Right Click Mouse\n";
+	printf("Get X Location: %d Get Y Location: %d\n", GETX, GETY);
+	printf("Running... Right Click Mouse\n");
 	
 	while (GETCLICKED) {
     	mouse_event(MOUSEEVENTF_RIGHTDOWN, GETX, GETY, 0, 0);
