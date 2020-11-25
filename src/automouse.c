@@ -1,18 +1,17 @@
 #include <stdio.h>
 #include <windows.h>
-#include "info.h"
 #include "togglemouse.h"
 #include "clickmouse.h"
 
-bool onRunning = true;
-bool isExit = false;
-bool onToggled = false;
-bool onClicked = false;
-bool isReload = false;
+int onRunning = 1;
+int isExit = 0;
+int onToggled = 0;
+int onClicked = 0;
+int isReload = 0;
 int getX, getY;
 
 int inRunning() {
-	while (onRunning == true) {
+	while (onRunning == 1) {
 		char* typeCommand;
 		POINT getPointer;
 		getX = getPointer.x;
@@ -27,12 +26,12 @@ int inRunning() {
     		scanf("%s", typeCommand);
 
     		if (typeCommand == "left") {
-    			onToggled = true;
+    			onToggled = 1;
     			toggleLeftButton(getX, getY, onToggled);
 			}
 			
 			else if (typeCommand == "right") {
-				onToggled = true;
+				onToggled = 1;
 				toggleRightButton(getX, getY, onToggled);
 			}
 		}
@@ -43,12 +42,12 @@ int inRunning() {
 			scanf("%s", typeCommand);
 
 			if (typeCommand == "left") {
-				onClicked = true;
+				onClicked = 1;
 				clickLeftButton(getX, getY, onClicked);
 			}
 
 			else if (typeCommand == "right") {
-				onClicked = true;
+				onClicked = 1;
 				clickRightButton(getX, getY, onClicked);
 			}
 		}
@@ -68,26 +67,26 @@ int inRunning() {
 		}
 
 		else if (typeCommand == "reload") {
-			isReload = true;
-			onRunning = false;
+			isReload = 1;
+			onRunning = 0;
 		}
 		
 		else if (typeCommand == "exit") {
 			printf("[AutoMouse Shell] Are you sure exit this programs? 'yes' or 'no'\n");
-			isExit = true;
+			isExit = 1;
 			
-			while (isExit == true) {
+			while (isExit == 1) {
 				printf("exit> ");
 				scanf("%s",typeCommand);
 			
 				if (typeCommand == "yes") {
 					printf("[AutoMouse Shell] Goodbye!\n");
-					onRunning = false;
-					isExit = false;
+					onRunning = 0;
+					isExit = 0;
 				}
 				
 				else if (typeCommand == "no") {
-					isExit == false;
+					isExit == 0;
 					break;
 				}
 				
@@ -123,7 +122,7 @@ int main() {
 
 	inRunning();
 
-	if (isReload == true) {
+	if (isReload == 1) {
 		system("cls");
         printf("Reloading Settings");
 		Sleep(1000);
@@ -146,8 +145,8 @@ int main() {
 		system("cls");
 
 
-		onRunning = true;
-		isReload = false;
+		onRunning = 1;
+		isReload = 0;
 	}
 
 	inRunning();
