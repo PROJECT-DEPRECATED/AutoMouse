@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <windows.h>
 
-int clickLeftButton(int GETX, int GETY, int GETCLICKED) {
+void clickLeftButton(int GETX, int GETY, int GETCLICKED) {
     printf("Get X Location: %d Get Y Location: %d\n", GETX, GETY);
 	printf("Running... Left Click Mouse\n");
 	
@@ -16,11 +16,9 @@ int clickLeftButton(int GETX, int GETY, int GETCLICKED) {
             system("cls");
         }
 	}
-
-	return 0;
 }
 
-int clickRightButton(int GETX, int GETY, int GETCLICKED) {
+void clickRightButton(int GETX, int GETY, int GETCLICKED) {
 	printf("Get X Location: %d Get Y Location: %d\n", GETX, GETY);
 	printf("Running... Right Click Mouse\n");
 	
@@ -35,6 +33,4 @@ int clickRightButton(int GETX, int GETY, int GETCLICKED) {
             system("cls");
         }
 	}
-
-	return 0;
 }
