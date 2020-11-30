@@ -11,7 +11,7 @@ bool onToggled = false;
 bool onClicked = false;
 bool isReload = false;
 int getX, getY;
-string getVersion = "2.1v";
+string getVersion = "2.0v";
 
 int inRunning() {
 	while (onRunning) {
@@ -22,12 +22,12 @@ int inRunning() {
 		getY = getPointer.y;
 		
 		GetCursorPos(&getPointer);
-		std::cout << ">";
+		std::cout << "> ";
     	std::cin >> typeCommand;
     
     	if (typeCommand == "toggle") {
     		std::cout << "[AutoMouse Shell] Which key would you like to press? 'left' or 'right'\n";
-			std::cout << "SelectButton>";
+			std::cout << "SelectButton> ";
     		std::cin >> typeCommand;
 
     		if (typeCommand == "left") {
@@ -43,7 +43,7 @@ int inRunning() {
 
 		else if (typeCommand == "click") {
 			std::cout << "[AutoMouse Shell] Which key would you like to click? 'left' or 'right'\n";
-			std::cout << "SelectButton>";
+			std::cout << "SelectButton> ";
     		std::cin >> typeCommand;
 
 			if (typeCommand == "left") {
@@ -77,11 +77,11 @@ int inRunning() {
 		}
 		
 		else if (typeCommand == "exit") {
-			printf("[AutoMouse Shell] Are you sure exit this programs? 'yes' or 'no'\n");
+			std::cout << "[AutoMouse Shell] Are you sure exit this programs? 'yes' or 'no'\n";
 			isExit = true;
 			
 			while (isExit) {
-				std::cout << "exit>";
+				std::cout << "exit> ";
 				std::cin >> typeCommand;
 			
 				if (typeCommand == "yes") {
@@ -120,10 +120,10 @@ int inRunning() {
 }
 
 int main() {
-	system("title AutoMouse-2.1v");
-    std::cout << "Automouse-2.1v Made by Project_TL\n"; 
-	printf("\n");
-	printf("[AutoMouse Shell] Please type commands. If you don't know please type help.\n");
+	system("title AutoMouse-2.0");
+    std::cout << "Automouse-" << getVersion << " Made by Project_TL\n"; 
+	std::cout << "\n";
+	std::cout << "[AutoMouse Shell] Please type commands. If you don't know please type help.\n";
 
 	inRunning();
 
