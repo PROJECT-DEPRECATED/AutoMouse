@@ -1,36 +1,54 @@
-#include <stdio.h>
+#include <iostream>
 #include <windows.h>
+using namespace std;
 
-void clickLeftButton(int GETX, int GETY, int GETCLICKED) {
-    printf("Get X Location: %d Get Y Location: %d\n", GETX, GETY);
-	printf("Running... Left Click Mouse\n");
+int clickLeftButton(int GETX, int GETY, bool GETCLICKED) {
+	int getClickCount;
+
+    std::cout << "Get X Location: " << GETX << "Get Y Location: " << GETY << "\n";
+	std::cout << "Running... Left Click Mouse\n";
 	
-	while (GETCLICKED == 1) {
+	while (GETCLICKED) {
     	mouse_event(MOUSEEVENTF_LEFTDOWN, GETX, GETY, 0, 0);
 		Sleep(25);
+		++getClickCount;
+
         mouse_event(MOUSEEVENTF_LEFTUP, GETX, GETY, 0, 0);
 		Sleep(25);
 
 		if (GetKeyState(VK_END)) {
-			GETCLICKED = 0;
+			GETCLICKED = false;
             system("cls");
+			
+			std::cout << "Click Count Result: " << getClickCount << endl;
         }
 	}
+	
+
+	return getClickCount;
 }
 
-void clickRightButton(int GETX, int GETY, int GETCLICKED) {
-	printf("Get X Location: %d Get Y Location: %d\n", GETX, GETY);
-	printf("Running... Right Click Mouse\n");
+int clickRightButton(int GETX, int GETY, bool GETCLICKED) {
+	int getClickCount;
+
+	std::cout << "Get X Location: " << GETX << "Get Y Location: " << GETY << "\n";
+	std::cout << "Running... Right Click Mouse\n";
 	
-	while (GETCLICKED == 1) {
+	while (GETCLICKED) {
     	mouse_event(MOUSEEVENTF_RIGHTDOWN, GETX, GETY, 0, 0);
 		Sleep(25);
+		++getClickCount;
+
         mouse_event(MOUSEEVENTF_RIGHTUP, GETX, GETY, 0, 0);
 		Sleep(25);
 
 		if (GetKeyState(VK_END)) {
-			GETCLICKED = 0;
+			GETCLICKED = false;
             system("cls");
+
+			std::cout << "Click Count Result: " << getClickCount << endl;
         }
 	}
+
+	return getClickCount;
 }

@@ -1,15 +1,16 @@
-#include <stdio.h>
+#include <iostream>
 #include <windows.h>
+using namespace std;
 
-int toggleLeftButton(int GETX, int GETY, int GETTOGGLE) {
-	printf("Get X Location: %d Get Y Location: %d\n", GETX, GETY);
-	printf("Running... Left Toggle Mouse\n");
+int toggleLeftButton(int GETX, int GETY, bool GETTOGGLE) {
+	std::cout << "Get X Location: %d Get Y Location: %d\n", GETX, GETY;
+	std::cout << "Running... Left Toggle Mouse\n";
 	
-	while (GETTOGGLE == 1) {
+	while (GETTOGGLE) {
     	mouse_event(MOUSEEVENTF_LEFTDOWN, GETX, GETY, 0, 0);
     	
 		if (GetKeyState(VK_END)) {
-			GETTOGGLE = 0;
+			GETTOGGLE = false;
             system("cls");
         }
 	}
@@ -17,15 +18,15 @@ int toggleLeftButton(int GETX, int GETY, int GETTOGGLE) {
 	return 0;
 }
 
-int toggleRightButton(int GETX, int GETY, int GETTOGGLE) {
-	printf("Get X Location: %d Get Y Location: %d\n", GETX, GETY);
-	printf("Running... Right Toggle Mouse\n");
+int toggleRightButton(int GETX, int GETY, bool GETTOGGLE) {
+	std::cout << "Get X Location: %d Get Y Location: %d\n", GETX, GETY;
+	std::cout << "Running... Right Toggle Mouse\n";
 	
-	while (GETTOGGLE == 1) {
+	while (GETTOGGLE) {
 		mouse_event(MOUSEEVENTF_RIGHTDOWN, GETX, GETY, 0, 0);
 		
 		if (GetKeyState(VK_END)) {
-			GETTOGGLE = 0;
+			GETTOGGLE = false;
             system("cls");
         }
 	}
