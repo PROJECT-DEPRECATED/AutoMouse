@@ -12,7 +12,7 @@ bool clicked = false;
 bool get_select = false;
 
 int getX, getY, count, click_second;
-char getVersion[5] = "2.0v";
+char getVersion[5] = "3.0v";
 void get_gui();
 
 void inRunning() {
@@ -28,6 +28,9 @@ void inRunning() {
 		
 		if (GetKeyState(VK_INSERT)) {
 			get_select = true;
+			system("cls");
+
+			printf("Which key do you want to press left or right?\n");
 
 			while (get_select) {
 				if (GetKeyState(VK_LEFT)) {
@@ -48,6 +51,9 @@ void inRunning() {
 			}
 		} else if (GetKeyState(VK_HOME)) {
 			get_select = true;
+			system("cls");
+
+			printf("Which key do you want to press left or right?\n");
 
 			while (get_select) {
 				if (GetKeyState(VK_LEFT)) {
